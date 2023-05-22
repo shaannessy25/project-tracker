@@ -1,15 +1,18 @@
+"use client";
 import { FC } from "react";
 import { Prisma } from "@prisma/client";
 import Card from "./Card";
 import clsx from "clsx";
-
+import { XCircle } from "react-feather";
+import { deleteProject } from "@/lib/api";
+import Button from "./Button";
 const projectWithTasks = Prisma.validator<Prisma.ProjectArgs>()({
   include: { tasks: true },
 });
 
 type ProjectWithTasks = Prisma.ProjectGetPayload<typeof projectWithTasks>;
 
-const formatDate = (date: any) =>
+const formatDate = (date) =>
   new Date(date).toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
@@ -23,9 +26,25 @@ const ProjectCard: FC<{ project: ProjectWithTasks }> = ({ project }) => {
   ).length;
   const progress = Math.ceil((completedCount / project.tasks.length) * 100);
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    try {
+      await deleteProject(project.id);
+      console.log("Project deleted successfully");
+      window.location.reload();
+    } catch (error) {
+      console.error("Failed to delete project", error);
+    }
+  };
+
   return (
-    <Card className='!px-6 !py-8 hover:scale-105 transition-all ease-in-out duration-200'>
+    <Card className='!px-6 !py-8 hover:scale-105 transition-all ease-in-out duration-200 relative'>
       <div>
+        <div className='absolute top-2 right-2 cursor-pointer'>
+          <Button intent='danger' size='small' onClick={handleDelete}>
+            <XCircle color='red' />
+          </Button>
+        </div>
         <span className='text-sm text-gray-300'>
           {formatDate(project.createdAt)}
         </span>

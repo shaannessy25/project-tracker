@@ -1,4 +1,25 @@
-export const fetcher = async ({ url, method, body, json = true }) => {
+
+interface RequestConfig {
+  url: string;
+  method: string;
+  body?: any;
+  json?: boolean;
+}
+
+interface User {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  email: string;
+  password: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  projects?: any;
+  tasks?: any;
+}
+
+
+export const fetcher = async ({ url, method, body, json = true }: RequestConfig): Promise<any> => {
   const res = await fetch(url, {
     method,
     body: body && JSON.stringify(body),
@@ -16,7 +37,7 @@ export const fetcher = async ({ url, method, body, json = true }) => {
   }
 };
 
-export const register = async (user) => {
+export const register = async (user: any) => {
   return fetcher({
     url: "/api/register",
     method: "POST",
@@ -25,7 +46,7 @@ export const register = async (user) => {
   });
 };
 
-export const signin = async (user) => {
+export const signin = async (user: any) => {
   return fetcher({
     url: "/api/signin",
     method: "POST",
@@ -34,11 +55,20 @@ export const signin = async (user) => {
   });
 };
 
-export const createNewProject = (name) => {
-  return fetcher({
+export const createNewProject = async (name: string) => {
+  const newProject = await fetcher({
     url: "/api/project",
     method: "POST",
     body: { name },
   });
+  return newProject;
 };
 
+
+export const deleteProject = async (id: any) => {
+  return fetcher({
+    url: `/api/project/${id}`,
+    method: "DELETE",
+    json: false,
+  });
+}

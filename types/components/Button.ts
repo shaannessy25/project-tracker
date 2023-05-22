@@ -1,6 +1,5 @@
-import { FC } from "react";
-import { ButtonProps } from "@/types/components/Button";
 import { cva, VariantProps } from "class-variance-authority";
+import { FC, ReactNode } from "react";
 
  const buttonClasses = cva(
    [
@@ -32,7 +31,13 @@ import { cva, VariantProps } from "class-variance-authority";
            "border-gray-800",
          ],
          text: ["bg-transparent", "text-black", "hover:bg-gray-100"],
-         danger: ["bg-trasnparent", "text-white", "hover:scale-130", "hover:bg-red-200", "active:bg-red-300"],
+         danger: [
+           "bg-trasnparent",
+           "text-white",
+           "hover:scale-130",
+           "hover:bg-red-200",
+           "active:bg-red-300",
+         ],
        },
        size: {
          small: ["text-md", "py-1", "px-2"],
@@ -47,22 +52,11 @@ import { cva, VariantProps } from "class-variance-authority";
    }
  );
 
-const Button: FC<ButtonProps> = ({
-  children,
-  className,
-  intent,
-  size,
-  type = "button",
-  ...props
-}) => {
-  return (
-    <button
-      type={type}
-      className={buttonClasses({ intent, size, className })}
-      {...props}>
-      {children}
-    </button>
-  );
-};
-
-export default Button;
+export interface ButtonProps extends VariantProps<typeof buttonClasses> {
+  intent?: "primary" | "secondary" | "text" | "danger";
+  size?: "small" | "medium" | "large";
+  children?: ReactNode;
+  className?: string;
+  type?: "button" | "submit" | "reset";
+  onClick?: (e: any) => Promise<void> | void;
+}

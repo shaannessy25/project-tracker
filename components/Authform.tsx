@@ -6,32 +6,20 @@ import { useRouter } from "next/navigation";
 import Card from "./Card";
 import Button from "./Button";
 import Input from "./Input";
+import { AuthFormProps, FormState, Content } from "@/types/components/Authform";
+import { initial, registerContent, signinContent } from "@/constants/content";
 
-const registerContent = {
-  linkUrl: "/signin",
-  linkText: "Already have an account?",
-  header: "Create a new Account",
-  subheader: "Just a few things to get started",
-  buttonText: "Register",
-};
-
-const signinContent = {
-  linkUrl: "/register",
-  linkText: "Don't have an account?",
-  header: "Welcome Back",
-  subheader: "Enter your credentials to access your account",
-  buttonText: "Sign In",
-};
-
-const initial = { email: "", password: "", firstName: "", lastName: "" };
-
-const AuthForm = ({ mode }: { mode: "register" | "signin" }) => {
-  const [formState, setFormState] = useState({ ...initial });
+const AuthForm: React.FC<AuthFormProps> = ({
+  mode,
+}: {
+  mode: "register" | "signin";
+}) => {
+  const [formState, setFormState] = useState<FormState>({ ...initial });
   const [error, setError] = useState("");
 
   const router = useRouter();
   const handleSubmit = useCallback(
-    async (e) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       try {
@@ -48,12 +36,7 @@ const AuthForm = ({ mode }: { mode: "register" | "signin" }) => {
         setFormState({ ...initial });
       }
     },
-    [
-      formState.email,
-      formState.password,
-      formState.firstName,
-      formState.lastName,
-    ]
+    [formState, mode, router]
   );
 
   const content = mode === "register" ? registerContent : signinContent;
@@ -77,7 +60,7 @@ const AuthForm = ({ mode }: { mode: "register" | "signin" }) => {
                   placeholder='First Name'
                   value={formState.firstName}
                   className='border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full'
-                  onChange={(e) =>
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setFormState((s) => ({ ...s, firstName: e.target.value }))
                   }
                 />
@@ -89,7 +72,7 @@ const AuthForm = ({ mode }: { mode: "register" | "signin" }) => {
                   placeholder='Last Name'
                   value={formState.lastName}
                   className='border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full'
-                  onChange={(e) =>
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setFormState((s) => ({ ...s, lastName: e.target.value }))
                   }
                 />
@@ -104,7 +87,7 @@ const AuthForm = ({ mode }: { mode: "register" | "signin" }) => {
               placeholder='Email'
               value={formState.email}
               className='border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full'
-              onChange={(e) =>
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setFormState((s) => ({ ...s, email: e.target.value }))
               }
             />
@@ -117,7 +100,7 @@ const AuthForm = ({ mode }: { mode: "register" | "signin" }) => {
               type='password'
               placeholder='Password'
               className='border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full'
-              onChange={(e) =>
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setFormState((s) => ({ ...s, password: e.target.value }))
               }
             />
@@ -142,6 +125,6 @@ const AuthForm = ({ mode }: { mode: "register" | "signin" }) => {
       </div>
     </Card>
   );
-}
+};
 
 export default AuthForm;

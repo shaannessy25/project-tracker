@@ -1,6 +1,9 @@
 import clsx from "clsx";
+import { FC } from "react";
+import { CardProps } from "@/types/components/Card";
 
-const Card = ({ className, children }) => {
+
+const Card: FC<CardProps> = ({ className, children }) => {
   return (
     <div
       className={clsx(
