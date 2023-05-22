@@ -11,7 +11,7 @@ export default async function handler(
     const newProject = await db.project.create({
       data: {
         name: req.body.name,
-        ownerId: user.id,
+        ownerId: user.id as string,
       },
     });
     res.json(newProject);

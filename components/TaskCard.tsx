@@ -4,7 +4,7 @@ import { TASK_STATUS } from "@prisma/client";
 import { cookies } from "next/headers";
 import Button from "./Button";
 import Card from "./Card";
-
+import NewTask from "./NewTask";
 
 interface Task {
   id: string;
@@ -42,9 +42,8 @@ const getData = async () => {
   return tasks;
 };
 
-const TaskCard = async ({ title, tasks }) => {
+const TaskCard = async ({ title, tasks, projectId }) => {
   const data = tasks || (await getData());
-
   return (
     <Card className='p-4'>
       <div className='flex flex-col h-full justify-between'>
@@ -58,10 +57,10 @@ const TaskCard = async ({ title, tasks }) => {
                 {data.map((task) => (
                   <div className='py-2' key={task.id}>
                     <div>
-                      <span className='text-gray-800'>{task.name}</span>
+                      <span className='text-gray-800 text-xl'>{task.name}</span>
                     </div>
                     <div>
-                      <span className='text-gray-400 text-sm'>
+                      <span className='text-gray-400 text-lg'>
                         {task.description}
                       </span>
                     </div>
@@ -74,9 +73,7 @@ const TaskCard = async ({ title, tasks }) => {
           </div>
         </div>
         <div className='self-end mt-4'>
-          <Button intent='text' className='text-violet-600'>
-            + Create New
-          </Button>
+          <NewTask projectId={projectId} />
         </div>
       </div>
     </Card>

@@ -72,3 +72,13 @@ export const deleteProject = async (id: any) => {
     json: false,
   });
 }
+
+
+export const createNewTask = async (name: string, description: string, projectId) => {
+  const newTask = await fetcher({
+    url: `/api/task`,
+    method: "POST",
+    body: { name, description, projectId },
+  });
+  return newTask;
+}

@@ -25,7 +25,6 @@ const getData = async () => {
 export default async function Page() {
   const { projects } = await getData();
 
-  
   return (
   
     <div className='h-full overflow-y-auto pr-6 w-full'>
@@ -47,11 +46,11 @@ export default async function Page() {
             <NewProject />
           </div>
         </div>
-        <div className='mt-6 flex-2 grow w-full flex'>
+        {/* <div className='mt-6 flex-2 grow w-full flex'>
           <div className='w-full'>
             <TaskCard  />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

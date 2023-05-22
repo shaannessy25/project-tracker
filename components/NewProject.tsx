@@ -40,11 +40,11 @@ return (
           placeholder='Project Name'
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className='border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500'
+          className='border-solid border-gray border-2 px-4 py-2 rounded-3xl'
         />
         <Button
           type='submit'
-          className='bg-blue-500 text-white py-2 rounded-md'>
+          size="medium">
           Create
         </Button>
       </form>

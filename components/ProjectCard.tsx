@@ -30,7 +30,6 @@ const ProjectCard: FC<{ project: ProjectWithTasks }> = ({ project }) => {
     e.preventDefault();
     try {
       await deleteProject(project.id);
-      console.log("Project deleted successfully");
       window.location.reload();
     } catch (error) {
       console.error("Failed to delete project", error);
