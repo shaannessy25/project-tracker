@@ -15,6 +15,8 @@ The project is built using Next.js, Tailwind CSS, and Prisma. Here are some deta
 
 - **Pages**: The application's pages are stored in the `app/pages` directory. The `app/pages/api` folder contains API routes used for server-side functionality.
 
+- **Lib**: Non-component, utility code used all over the app. Things like hashing passwords, checking JWT tokens, fetching data from the API, etc.
+
 - **Database**: The project utilizes Prisma as the ORM (Object-Relational Mapping) tool to manage database operations. The database is hosted on Railway, a database-as-a-service platform.
 
 - **Package Dependencies**: The project's `package.json` file contains the necessary dependencies and devDependencies for the application. Notable dependencies include Next.js, React, Prisma, Tailwind CSS, and TypeScript.
@@ -24,8 +26,8 @@ The project is built using Next.js, Tailwind CSS, and Prisma. Here are some deta
 
 - **User Authentication**: Securely register, log in, and manage user accounts.
 - **Project Management**: Create new projects, view existing projects, and delete projects as needed.
-- **Task Tracking**: Create/Delete projects, add tasks to projects, monitor their progress
-- **Efficient Collaboration**: Enable teams to work together by assigning tasks and tracking project status.
+- **Task Tracking**: Add tasks to projects and monitor their progress
+
 
 ## Technologies Used
 
@@ -63,13 +65,23 @@ To start the development server, run the following command:
    ```
 the application will be accessible at http://localhost:3000
 
-## Demo
+## Deployment
 
+The Project Tracker application is deployed using [Vercel](https://vercel.com/). You can visit the application by following the link below:
+
+[Project Tracker Link](https://project-tracker-one.vercel.app/signin)
+
+
+### Demo
 
 https://github.com/shaannessy25/project-tracker/assets/47993680/9e4922c0-cf20-46fb-92b1-14125069f344
 
 
 
 ## Known Issues and Limitations
-* Deleting taks functionality is currently not implemented
-* Sidebar links are not connected to their respective routes
+* Deleting task functionality is currently not implemented
+* Task completed logic has not been implemented
+* Some Sidebar links are not connected to their respective routes
+* Error handling 
+* Signout feature needs to be implemented 
+

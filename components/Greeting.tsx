@@ -2,10 +2,10 @@ import { getUserFromCookie } from "@/lib/auth";
 import { cookies } from "next/headers";
 import Button from "./Button";
 import Card from "./Card";
-import { delay } from "@/lib/async";
 import { User } from "@prisma/client";
 
-const Greeting = ({ user }: { user: User | null }) => {
+const Greeting = ({ user }: {user: User | null} ) => {
+
   return (
     <Card className='w-full py-4 relative'>
       <div className='mb-4'>
@@ -22,5 +22,6 @@ const Greeting = ({ user }: { user: User | null }) => {
     </Card>
   );
 };
+
 
 export default Greeting;
