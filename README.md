@@ -61,6 +61,13 @@ To start the development server, run the following command:
    ```
 the application will be accessible at http://localhost:3000
 
+## Demo
+
+
+https://github.com/shaannessy25/project-tracker/assets/47993680/9e4922c0-cf20-46fb-92b1-14125069f344
+
+
+
 ## Known Issues and Limitations
 * Deleting taks functionality is currently not implemented
 * Sidebar links are not connected to their respective routes
