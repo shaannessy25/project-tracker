@@ -1,5 +1,7 @@
 # Project Tracker
-<!-- ![Build Status](https://img.shields.io/travis/shaannessy25/project-tracker.svg) -->
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![Files](https://img.shields.io/github/directory-file-count/shaannessy25/project-tracker)
+![Code Size](https://img.shields.io/github/languages/code-size/shaannessy25/project-tracker)
 
 The Project Tracker is a web application designed to streamline project and task management. It provides essential features for creating, updating, and deleting projects and tasks, along with user authentication.
 
