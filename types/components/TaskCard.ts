@@ -1,6 +1,6 @@
-import { Task as TaskType } from "@prisma/client";
+import { Task as Tasktype } from "@prisma/client";
 
-export interface Task extends TaskType {
+export interface Task extends Tasktype {
   id: string;
   createdAt: Date;
   updatedAt: Date;
@@ -8,14 +8,11 @@ export interface Task extends TaskType {
   name: string;
   description: string;
   due: Date;
-  tasks: Task[];
-  ownerId: string;
+  tasks: Tasktype[];
 }
 
-export interface TaskCardProps {
+export interface TaskCardProps{
   title?: string;
-  tasks?:
-    | Task[]
-    | import("/Users/Shaan/Desktop/Code/project-tracker/my-project/node_modules/.prisma/client/index").Task[];
+  tasks?: Tasktype[] | undefined;
   projectId?: string;
 }

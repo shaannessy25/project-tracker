@@ -17,13 +17,12 @@ The project is built using Next.js, Tailwind CSS, and Prisma. Here are some deta
 
 - **Package Dependencies**: The project's `package.json` file contains the necessary dependencies and devDependencies for the application. Notable dependencies include Next.js, React, Prisma, Tailwind CSS, and TypeScript.
 
-Please note that further details about the project's design patterns, architectural principles, scalability considerations, and security measures were not provided. If you have any specific details regarding these aspects, feel free to add them to the README.
 
 ## Key Features
 
 - **User Authentication**: Securely register, log in, and manage user accounts.
 - **Project Management**: Create new projects, view existing projects, and delete projects as needed.
-- **Task Tracking**: Add tasks to projects, monitor their progress, and mark them as completed.
+- **Task Tracking**: Create/Delete projects, add tasks to projects, monitor their progress
 - **Efficient Collaboration**: Enable teams to work together by assigning tasks and tracking project status.
 
 ## Technologies Used
