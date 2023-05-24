@@ -12,7 +12,7 @@ const projectWithTasks = Prisma.validator<Prisma.ProjectArgs>()({
 
 type ProjectWithTasks = Prisma.ProjectGetPayload<typeof projectWithTasks>;
 
-const formatDate = (date) =>
+const formatDate = (date: string | number | Date) =>
   new Date(date).toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
@@ -26,7 +26,7 @@ const ProjectCard: FC<{ project: ProjectWithTasks }> = ({ project }) => {
   ).length;
   const progress = Math.ceil((completedCount / project.tasks.length) * 100);
 
-  const handleDelete = async (e) => {
+  const handleDelete = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
       await deleteProject(project.id);

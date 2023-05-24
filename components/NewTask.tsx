@@ -12,7 +12,7 @@ Modal.setAppElement("#task-modal");
 
 
 
-const NewTask = ({ projectId }): JSX.Element => {
+const NewTask = ({ projectId }: {projectId: string}): JSX.Element => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);

@@ -6,7 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const user = await validateJWT(req.cookies[process.env.COOKIE_NAME]);
+  const user = await validateJWT(req.cookies?.[process.env.COOKIE_NAME ?? ""] as string); 
   if (req.method === "POST") {
     const newProject = await db.project.create({
       data: {

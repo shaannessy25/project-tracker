@@ -18,26 +18,27 @@ const AuthForm: React.FC<AuthFormProps> = ({
   const [error, setError] = useState("");
 
   const router = useRouter();
-  const handleSubmit = useCallback(
-    async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-
-      try {
-        if (mode === "register") {
-          await register(formState);
-        } else {
-          await signin(formState);
-        }
-
-        router.replace("/home");
-      } catch (e) {
-        setError(`Could not ${mode}`);
-      } finally {
-        setFormState({ ...initial });
+const handleSubmit = useCallback(
+  async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      if (mode === "register") {
+        await register(formState);
+      } else {
+        await signin(formState);
       }
-    },
-    [formState, mode, router]
-  );
+
+      console.log("Redirecting to /home");
+      router.replace("/home");
+    } catch (e) {
+      setError(`Could not ${mode}`);
+    } finally {
+      setFormState({ ...initial });
+    }
+  },
+  [formState, mode, router]
+);
+
 
   const content = mode === "register" ? registerContent : signinContent;
 

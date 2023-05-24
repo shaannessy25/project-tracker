@@ -3,16 +3,9 @@ import { cookies } from "next/headers";
 import Button from "./Button";
 import Card from "./Card";
 import { delay } from "@/lib/async";
+import { User } from "@prisma/client";
 
-const getData = async () => {
-  // await delay(5000);
-  const user = await getUserFromCookie(cookies());
-  return user;
-};
-
-const Greeting = async () => {
-  const user = await getData();
-
+const Greeting = ({ user }: { user: User | null }) => {
   return (
     <Card className='w-full py-4 relative'>
       <div className='mb-4'>

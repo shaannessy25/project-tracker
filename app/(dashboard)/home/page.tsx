@@ -3,7 +3,7 @@ import { getUserFromCookie } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import { Suspense} from "react";
+import { Suspense } from "react";
 import Greeting from "@/components/Greeting";
 import GreetingsSkeleton from "@/components/GreetingsSkeleton";
 import ProjectCard from "@/components/ProjectCard";
@@ -17,21 +17,18 @@ const getData = async () => {
     where: { ownerId: user?.id },
     include: { tasks: true },
   });
-  return { projects };
+  return { projects, user };
 };
-
-
 
 export default async function Page() {
   const { projects } = await getData();
-
+  const { user } = await getData();
   return (
-  
     <div className='h-full overflow-y-auto pr-6 w-full'>
       <div className=' h-full  items-stretch justify-center min-h-[content]'>
         <div className='flex-1 grow flex m-3'>
           <Suspense fallback={<GreetingsSkeleton />}>
-            <Greeting />
+            <Greeting user={user} />
           </Suspense>
         </div>
         <div className='flex flex-2 grow items-center flex-wrap mt-3 m-3 '>
@@ -46,11 +43,6 @@ export default async function Page() {
             <NewProject />
           </div>
         </div>
-        {/* <div className='mt-6 flex-2 grow w-full flex'>
-          <div className='w-full'>
-            <TaskCard  />
-          </div>
-        </div> */}
       </div>
     </div>
   );

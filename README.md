@@ -1,51 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Tracker
+<!-- ![Build Status](https://img.shields.io/travis/shaannessy25/project-tracker.svg) -->
 
-## Getting Started
+The Project Tracker is a web application designed to streamline project and task management. It provides essential features for creating, updating, and deleting projects and tasks, along with user authentication.
 
-First, run the development server:
+## Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- **User Authentication**: Securely register, log in, and manage user accounts.
+- **Project Management**: Create new projects, view existing projects, and delete projects as needed.
+- **Task Tracking**: Add tasks to projects, monitor their progress, and mark them as completed.
+- **Efficient Collaboration**: Enable teams to work together by assigning tasks and tracking project status.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: A React framework for building server-side rendered and statically generated applications.
+- **Prisma**: An ORM (Object-Relational Mapping) tool for database access and management.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **TypeScript**: A statically typed superset of JavaScript that enhances code scalability and maintainability.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Prerequisites
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Node.js version 16 or later (preferably 18) installed on your system.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+1. Clone the repository to your local machine.
+2. Navigate to the project's root directory.
+3. Create an `.env` file and provide the following environment variables:
 
-To learn more about Next.js, take a look at the following resources:
+   ```plaintext
+   COOKIE_NAME=<your_cookie_name>
+   JWT_SECRET=<your_jwt_secret>
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Install the required dependencies by running the following command:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```plaintext
+   npm install
+   ```
 
-## Deploy on Vercel
+## Usage
+To start the development server, run the following command:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```plaintext
+   npm run dev
+   ```
+the application will be accessible at http://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-## Todo
-1. Update Readme
-2. Deploy 
-3. Add testing
-4. Fix typescript
-5. Fix UI
-    - Fonts
-    - text placement
-    - error message
-6. Error Handling
-7. Get rid of all warnings
+## Known Issues and Limitations
+* Deleting taks functionality is currently not implemented
+* Sidebar links are not connected to their respective routes
