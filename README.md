@@ -43,10 +43,10 @@ The project is built using Next.js, Tailwind CSS, and Prisma. Here are some deta
 3. Create an `.env` file and provide the following environment variables:
 
    ```plaintext
+   DATABASE_URL="postgresql://postgres:sNLDJZMHevxNBtoUdt6h@containers-us-west-15.railway.app:6188/railway?schema=public"
    COOKIE_NAME=<your_cookie_name>
    JWT_SECRET=<your_jwt_secret>
-   ```
-
+v
 4. Install the required dependencies by running the following command:
 
    ```plaintext
