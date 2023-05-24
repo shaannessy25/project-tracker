@@ -3,6 +3,22 @@
 
 The Project Tracker is a web application designed to streamline project and task management. It provides essential features for creating, updating, and deleting projects and tasks, along with user authentication.
 
+## Design and Architecture
+
+The project is built using Next.js, Tailwind CSS, and Prisma. Here are some details about the design and architecture:
+
+- **Architecture**: The project follows a monolithic architecture, where the front-end and back-end components are combined into a single application.
+
+- **Components**: The project's front-end is organized within the `app` folder. The `components` folder contains reusable UI components.
+
+- **Pages**: The application's pages are stored in the `app/pages` directory. The `app/pages/api` folder contains API routes used for server-side functionality.
+
+- **Database**: The project utilizes Prisma as the ORM (Object-Relational Mapping) tool to manage database operations. The database is hosted on Railway, a database-as-a-service platform.
+
+- **Package Dependencies**: The project's `package.json` file contains the necessary dependencies and devDependencies for the application. Notable dependencies include Next.js, React, Prisma, Tailwind CSS, and TypeScript.
+
+Please note that further details about the project's design patterns, architectural principles, scalability considerations, and security measures were not provided. If you have any specific details regarding these aspects, feel free to add them to the README.
+
 ## Key Features
 
 - **User Authentication**: Securely register, log in, and manage user accounts.

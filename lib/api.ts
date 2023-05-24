@@ -74,7 +74,7 @@ export const deleteProject = async (id: any) => {
 }
 
 
-export const createNewTask = async (name: string, description: string, projectId) => {
+export const createNewTask = async (name: string, description: string, projectId: string) => {
   const newTask = await fetcher({
     url: `/api/task`,
     method: "POST",

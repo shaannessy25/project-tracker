@@ -6,7 +6,14 @@ import clsx from "clsx";
 
 const icons = { Settings, User, Grid, Calendar };
 
-const SidebarLink = ({ link } ) => {
+interface SidebarLinkProps {
+  link: {
+    link: string;
+    icon: keyof typeof icons;
+  };
+}
+
+const SidebarLink: React.FC<SidebarLinkProps> = ({ link } ) => {
   const pathname = usePathname();
   let isActive = false;
 
@@ -29,3 +36,6 @@ const SidebarLink = ({ link } ) => {
 };
 
 export default SidebarLink;
+
+
+
